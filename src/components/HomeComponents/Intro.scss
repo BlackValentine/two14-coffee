@@ -1,0 +1,52 @@
+@use '../../variables/variable' as c;
+
+.container__intro {
+  display: flex;
+  align-items: center;
+
+  .intro__left {
+    display: flex;
+    height: 500px;
+    width: 50%;
+    background-color: c.$primary-color;
+
+    img {
+      height: 300px;
+      margin: auto;
+    }
+  }
+
+  .intro__right {
+    position: relative;
+    background: url("../../assets/images/image1.webp") center no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 50%;
+
+    &-content-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background-color: rgba($color: #000000, $alpha: 0.2);
+
+      .intro__right-content {
+        margin: auto 50px;
+
+        h3 {
+          color: c.$yellow-dark-color;
+          text-transform: uppercase;
+          font-size: 80px;
+          letter-spacing: 0.05px;
+          line-height: 80px;
+          word-spacing: 0px;
+          font-family: 'Knockout', Helvetica, sans-serif;
+        }
+
+        p {
+          font-size: 20px;
+          color: c.$text-color;
+        }
+      }
+    }
+  }
+}

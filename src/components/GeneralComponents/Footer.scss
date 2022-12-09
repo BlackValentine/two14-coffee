@@ -1,0 +1,23 @@
+.container__footer {
+  padding: 0 !important;
+  
+  .footer__info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 48px;
+
+    &-item {
+      h6 {
+        text-transform: uppercase;
+        font-size: 24px;
+        color: #44403C;
+      }
+
+      ul li {
+        margin-top: 24px;
+        font-size: 14px;
+        color: #78716C;
+      }
+    }
+  }
+}

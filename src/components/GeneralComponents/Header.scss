@@ -1,0 +1,53 @@
+@use '../../variables/variable' as c;
+
+.header {
+  background-color: black;
+
+  .container__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+
+    .header__left {
+      display: flex;
+      align-items: center;
+
+      .header__logo {
+        width: 200px;
+        padding: 8px;
+        border-radius: 4px;
+        background-color: c.$primary-color;
+      }
+
+      .header__list {
+        display: flex;
+        align-items: center;
+
+        .header__item {
+          margin: 0 16px;
+          font-size: 14px;
+          color: c.$text-color;
+
+          &:hover {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+
+    .header__right {
+      display: flex;
+      align-items: center;
+      
+      img {
+        height: 24px;
+        color: #fff;
+      }
+
+      .cart-number {
+
+      }
+    }
+  }
+}

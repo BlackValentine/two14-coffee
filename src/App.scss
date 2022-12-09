@@ -1,0 +1,133 @@
+@import url('https://fonts.cdnfonts.com/css/courier-prime');
+@import url('https://fonts.cdnfonts.com/css/knockout');
+
+* {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.grid {
+  display: grid;
+}
+
+body {
+  color: white;
+  font-family: 'courier-prime', monospace;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-component {
+  padding: 12rem 0 8rem;
+}
+
+/*========== GENERAL ==========*/
+.title {
+  margin-bottom: 3.6rem;
+}
+
+.title__number {
+  font-size: 1.6rem;
+  color: #64ffda;
+}
+
+.title__text {
+  margin-left: 0.8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.space-header {
+  padding-top: 12.3rem;
+}
+
+.active-filter-option {
+  display: none;
+}
+
+.font-400 {
+  font-weight: 400;
+}
+.font-500 {
+  font-weight: 500;
+}
+
+.font-600 {
+  font-weight: 600;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    margin: 0 10rem;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    margin: 0 3.6rem;
+  }
+}
+
+.search-icon {
+  color: #ffffff !important;
+}
