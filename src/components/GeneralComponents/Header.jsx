@@ -4,11 +4,12 @@ import Logo from "../../assets/images/logo.svg"
 import SearchIcon from "../../assets/images/search.svg"
 import AccountIcon from "../../assets/images/account.svg"
 import CartIcon from "../../assets/images/cart.svg"
+import { Link } from "react-router-dom"
 
 function Header(props) {
   const headerList = [
     {
-      "href": "#",
+      "href": "/",
       "title": "Home"
     },
     {
@@ -20,7 +21,7 @@ function Header(props) {
       "title": "Shop"
     },
     {
-      "href": "#Wholesale",
+      "href": "/wholesale",
       "title": "Wholesale"
     },
     {
@@ -44,9 +45,9 @@ function Header(props) {
           <ul className="header__list">
             {headerList.map((headerItem, index) => {
               return (
-                <a key={index} href={headerItem.href}>
+                <Link key={index} to={headerItem.href}>
                   <li className="header__item">{headerItem.title}</li>
-                </a>
+                </Link>
               )
             })}
           </ul>

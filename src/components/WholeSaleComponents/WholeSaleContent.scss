@@ -1,0 +1,26 @@
+@use '../../variables/variable' as c;
+
+.container__wholesale {
+  display: flex;
+  background-color: #F8F7F4;
+
+  .wholesale__content {
+    max-width: 800px;
+    margin: 96px auto;
+    font-family: 'Knockout', Helvetica, sans-serif;
+
+    .wholesale__title {
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      color: c.$primary-color;
+      font-size: 60px;
+    }
+  
+    .wholesale__subtitle {
+      font-size: 18px;
+      color: c.$text-green-color;
+      margin-bottom: 20px;
+    }
+  }
+  
+}

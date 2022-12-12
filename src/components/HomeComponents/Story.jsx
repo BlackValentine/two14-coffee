@@ -1,6 +1,5 @@
 import React from 'react';
 import './Story.scss';
-import BigLogo from "../../assets/images/bigLogo.svg"
 
 function Story(props) {
   return (
@@ -19,9 +18,6 @@ function Story(props) {
             <button>Read our story</button>
           </div>
         </div>
-      </div>
-      <div className="container__bigLogo">
-        <img src={BigLogo} alt="" />
       </div>
     </div>
   );
