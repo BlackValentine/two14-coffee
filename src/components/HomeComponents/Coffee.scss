@@ -1,0 +1,30 @@
+@use "../../variables/variable" as c;
+
+.container__coffee-blend {
+  padding: 96px 0;
+
+  .coffee-blend__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+
+    .coffee-blend__title {
+      font-size: 36px;
+      text-transform: uppercase;
+      color: #1C1917;
+      font-family: 'Knockout', Helvetica, sans-serif;
+    }
+
+    .coffee-blend__all {
+      font-size: 14px;
+      color: c.$light-primary-color;
+    }
+  }
+
+  .coffee-blend__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}

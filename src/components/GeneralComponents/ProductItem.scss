@@ -1,0 +1,32 @@
+/** @format */
+
+@use '../../variables/variable' as c;
+
+.product-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__img {
+		border-radius: 8px;
+		box-shadow: 0 0 #0000, 0 0 #0000,
+			0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+		cursor: pointer;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__name {
+		margin-top: 8px;
+		font-size: 18px;
+		color: #1c1917;
+    text-transform: uppercase;
+	}
+
+	&__more {
+		margin-top: 8px;
+		font-size: 14px;
+		color: c.$light-primary-color;
+	}
+}

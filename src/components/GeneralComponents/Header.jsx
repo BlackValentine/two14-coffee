@@ -8,35 +8,31 @@ import { Link } from "react-router-dom"
 
 function Header(props) {
   const headerList = [
-    {
-      "href": "/",
-      "title": "Home"
-    },
-    {
-      "href": "#Coffee",
-      "title": "Coffee"
-    },
-    {
-      "href": "#Shop",
-      "title": "Shop"
-    },
-    {
-      "href": "/wholesale",
-      "title": "Wholesale"
-    },
-    {
-      "href": "#Cafes",
-      "title": "Cafes"
-    },
-    {
-      "href": "#Media",
-      "title": "Media"
-    },
-    {
-      "href": "#Partners",
-      "title": "Partners"
-    },
-  ]
+		{
+			href: '/',
+			title: 'Home',
+		},
+		{
+			href: '/collections/coffee-blend',
+			title: 'Coffee',
+		},
+		{
+			href: '/collections',
+			title: 'Shop',
+		},
+		{
+			href: '/wholesale',
+			title: 'Wholesale',
+		},
+		{
+			href: '#Media',
+			title: 'Media',
+		},
+		{
+			href: '#Partners',
+			title: 'Partners',
+		},
+	];
   return (
     <div className="header" id="header">
       <div className="container container__header">
