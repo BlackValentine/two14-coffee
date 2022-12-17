@@ -38,7 +38,7 @@ function Coffee(props) {
 			<ul className='coffee-blend__list'>
 				{coffeeList.map((coffeeItem, index) => {
 					return (
-						<li className='coffee-collection__item'>
+						<li key={index} className='coffee-collection__item'>
 							<ProductItem img={coffeeItem.img} name={coffeeItem.name} />
 						</li>
 					);

@@ -3,10 +3,9 @@
 import React from 'react';
 import './Header.scss';
 import Logo from '../../assets/images/logo.svg';
-import SearchIcon from '../../assets/images/search.svg';
-import AccountIcon from '../../assets/images/account.svg';
-import CartIcon from '../../assets/images/cart.svg';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlide';
 
 function Header(props) {
 	const headerList = [
@@ -35,6 +34,14 @@ function Header(props) {
 			title: 'Partners',
 		},
 	];
+	const dispatch = useDispatch();
+	const isShowCheckoutPopup = useSelector(
+		(state) => state.general.isShowCheckoutPopup
+	);
+
+	const handleCloseCheckouPopup = () => {
+		dispatch(setIsShowCheckoutPopup(!isShowCheckoutPopup));
+	};
 	return (
 		<div className='header' id='header'>
 			<div className='container container__header'>
@@ -54,7 +61,7 @@ function Header(props) {
 					<div className='d-flex align-items-center'>
 						<a href='#'>
 							<svg
-								class='w-6 h-6'
+								className='w-6 h-6'
 								xmlns='http://www.w3.org/2000/svg'
 								fill='none'
 								viewBox='0 0 24 24'
@@ -62,16 +69,16 @@ function Header(props) {
 								aria-hidden='true'
 							>
 								<path
-									stroke-linecap='round'
-									stroke-linejoin='round'
-									stroke-width='2'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									strokeWidth='2'
 									d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
 								></path>
 							</svg>
 						</a>
-						<Link to={'/account/login'} className="border">
+						<Link to={'/account/login'} className='border'>
 							<svg
-								class='w-6 h-6'
+								className='w-6 h-6'
 								xmlns='http://www.w3.org/2000/svg'
 								fill='none'
 								viewBox='0 0 24 24'
@@ -79,18 +86,21 @@ function Header(props) {
 								aria-hidden='true'
 							>
 								<path
-									stroke-linecap='round'
-									stroke-linejoin='round'
-									stroke-width='2'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									strokeWidth='2'
 									d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
 								></path>
 							</svg>
 						</Link>
 					</div>
 					<div className='d-flex align-items-center'>
-						<a href='#' className="header__right-cart">
+						<a
+							href='#'
+							className='header__right-cart'
+							onClick={handleCloseCheckouPopup}
+						>
 							<svg
-								class='flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500'
 								xmlns='http://www.w3.org/2000/svg'
 								fill='none'
 								viewBox='0 0 24 24'
@@ -98,9 +108,9 @@ function Header(props) {
 								aria-hidden='true'
 							>
 								<path
-									stroke-linecap='round'
-									stroke-linejoin='round'
-									stroke-width='2'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									strokeWidth='2'
 									d='M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'
 								></path>
 							</svg>

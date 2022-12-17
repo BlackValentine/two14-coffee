@@ -1,16 +1,23 @@
+/** @format */
+
 import React, { useState } from 'react';
-import "./CheckoutPopup.scss"
-import closeIcon from "../../assets/images/x-close.svg"
+import './CheckoutPopup.scss';
+import closeIcon from '../../assets/images/x-close.svg';
 import CheckoutProductItem from './CheckoutProductItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlide';
 
 function CheckoutPopup(props) {
-  const [isShowCheckoutPopup, setIsShowCheckoutPopup] = useState(true)
+  const dispatch = useDispatch();
+	const isShowCheckoutPopup = useSelector(
+		(state) => state.general.isShowCheckoutPopup
+	);
 
-  const handleCloseCheckouPopup = () => {
-    setIsShowCheckoutPopup(!isShowCheckoutPopup);
-  }
+	const handleCloseCheckouPopup = () => {
+		dispatch(setIsShowCheckoutPopup(!isShowCheckoutPopup));
+	};
 
-  return (
+	return (
 		<div
 			className={`checkout-popup__wrap ${isShowCheckoutPopup ? '' : 'close'}`}
 		>
