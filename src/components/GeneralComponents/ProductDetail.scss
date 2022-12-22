@@ -1,0 +1,110 @@
+@use '../../variables/variable' as c;
+
+.product-detail__wrap {
+  background-color: #f0f0e9;
+
+  .container__product-detail {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    gap: 40px;
+    padding: 64px 0;
+
+    .product-detail__img {
+      img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+      }
+    }
+
+    .product-detail {
+      &__title {
+        font-size: 40px;
+        color: #1c1917;
+        font-family: 'Knockout', Helvetica, sans-serif;
+      }
+
+      &__author {
+        margin-top: 8px;
+        font-size: 12px;
+        color: c.$light-primary-color;
+      }
+
+      &__subtitle {
+        margin: 24px 0;
+        font-size: 14px;
+        color: c.$text-green-color;
+      }
+
+      .coffee__roast,
+      .coffee__origin,
+      .coffee__taste {
+        padding: 16px 0;
+
+        h6 {
+          font-size: 18px;
+          color: #1c1917;
+          font-weight: 600;
+        }
+
+        p {
+          margin-top: 4px;
+          font-size: 14px;
+          color: c.$text-green-color;
+        }
+      }
+
+      .coffee__roast,
+      .coffee__origin {
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+      }
+
+      .coffee__origin {
+        padding-left: 24px;
+        border-left: 1px dashed #000000;
+      }
+
+      .coffee__taste {
+        border-bottom: 1px solid #000000;
+      }
+
+      &__quantity {
+        .quantity__title {
+          font-size: 14px;
+          color: #1c1917;
+          margin-bottom: 4px;
+        }
+
+        input {
+          width: 120px;
+          padding: 8px 12px;
+          border: 1px solid #D6D3D1;
+          font-size: 14px;
+          border-radius: 4px;
+        }
+
+        span {
+          margin-left: 24px;
+          font-size: 24px;
+          font-weight: 600;
+          color: c.$light-primary-color;
+          font-family: 'Knockout', Helvetica, sans-serif;
+        }
+      }
+
+      &__add-btn {
+        width: 100%;
+        padding: 16px 0;
+        margin-top: 20px;
+        background-color: c.$light-primary-color;
+        color: #ffffff;
+        font-size: 18px;
+        border-radius: 8px;
+      }
+    }
+
+  }
+}

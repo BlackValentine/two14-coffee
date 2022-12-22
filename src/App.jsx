@@ -8,6 +8,7 @@ import CollectionScreen from './components/Screens/CollectionScreen';
 import LogInScreen from './components/Screens/LogInScreen';
 import RegisterScreen from './components/Screens/RegisterScreen';
 import ResetPasswordScreen from './components/Screens/ResetPasswordScreen';
+import ProductItemScreen from './components/Screens/ProductItemScreen';
 
 function App(props) {
   return (
@@ -22,6 +23,7 @@ function App(props) {
 			<Route path='/account/login' element={<LogInScreen />} />
 			<Route path='/account/register' element={<RegisterScreen />} />
 			<Route path='/account/reset' element={<ResetPasswordScreen />} />
+			<Route path='/collections/product' element={<ProductItemScreen />} />
 		</Routes>
 	);
 }
