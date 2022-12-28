@@ -205,3 +205,26 @@ body {
 .search-icon {
   color: #ffffff !important;
 }
+
+.btn {
+  display: flex;
+  padding: 12px 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  span {
+    margin: auto;
+  }
+}
+
+.submit-btn {
+  color: #ffffff;
+  background-color: #059669;
+}

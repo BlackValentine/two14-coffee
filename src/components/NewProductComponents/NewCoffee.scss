@@ -1,0 +1,80 @@
+@use "../../variables/variable" as c;
+
+h3 {
+  text-align: center;
+  font-size: 48px;
+  color: c.$text-green-color;
+  margin: 20px 0;
+}
+
+.new-coffee__submit-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.new-coffee__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+
+  .new-coffee__image {
+    label {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      border: 1px dashed c.$light-primary-color;
+      color: c.$text-green-color;
+      border-radius: 8px;
+      cursor: pointer;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      span {
+        margin: auto;
+        font-size: 20px;
+      }
+    }
+  }
+  .new-coffee__all-field {
+    .new-coffee__field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+
+      span {
+        min-width: 50px;
+        font-size: 16px;
+        color: c.$text-green-color;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px 4px;
+        border: 1px solid c.$text-green-color;
+        border-radius: 4px;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 8px 4px;
+        border: 1px solid c.$text-green-color;
+        border-radius: 4px;
+        resize: none;
+
+        &:focus {
+          border: 1px solid c.$text-green-color;
+        }
+      }
+    }
+
+    .new-coffee__field-description {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
