@@ -3,10 +3,9 @@ import axiosClient from './axiosClient';
 const createProduct = (product) => {
   const url = '/product/create-product';
   if (product.type === "coffee") {
-    console.log(product)
     return axiosClient.post(url, {
       type: product.type,
-      title: product.title,
+      name: product.name,
       author: product.author,
       roast: product.roast,
       origin: product.origin,

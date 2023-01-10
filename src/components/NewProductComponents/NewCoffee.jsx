@@ -8,7 +8,7 @@ import productApi from '../../api/productApi';
 function NewCoffee(props) {
   const [coffee, setCoffee] = useState({
     type: "coffee",
-    title: "",
+    name: "",
     author: "",
     roast: "",
     origin: "",
@@ -29,6 +29,7 @@ function NewCoffee(props) {
   const handleAddImage = async (e) => {
     let data = e.target.files;
     let file = data[0];
+
     if (file) {
       let base64 = await utils.getBase64(file);
       let objectUrl = URL.createObjectURL(file);
@@ -42,7 +43,6 @@ function NewCoffee(props) {
       ...coffee,
       image: imageProduct
     })
-    // console.log({...coffee, image: imageProduct})
   }
 
   return (
@@ -63,8 +63,8 @@ function NewCoffee(props) {
         </div>
         <div className="new-coffee__all-field">
           <div className="new-coffee__field">
-            <span>Title</span>
-            <input id="title" type="text" placeholder="Product Name ..." onChange={(e) => handleChangeField(e)}/>
+            <span>Name</span>
+            <input id="name" type="text" placeholder="Product Name ..." onChange={(e) => handleChangeField(e)}/>
           </div>
           <div className="new-coffee__field">
             <span>Author</span>
