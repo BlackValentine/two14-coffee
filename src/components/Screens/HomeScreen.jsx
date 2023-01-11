@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAllCoffee } from '../../store/api';
 import CheckoutPopup from '../CheckoutComponents/CheckoutPopup';
 import Footer from '../GeneralComponents/Footer';
 import Header from '../GeneralComponents/Header';
@@ -7,6 +9,11 @@ import Intro from '../HomeComponents/Intro';
 import Story from '../HomeComponents/Story';
 
 function HomeScreen(props) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCoffee())
+  }, [])
   return (
     <div>
       <CheckoutPopup />

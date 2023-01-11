@@ -1,0 +1,27 @@
+@use "../../variables/variable" as c;
+
+.new-product__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 96px 0;
+
+  .new-product__item {
+    display: flex;
+    height: 150px;
+    background-color: c.$light-primary-color;
+    border-radius: 8px;
+    cursor: pointer;
+
+    span {
+      margin: auto;
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

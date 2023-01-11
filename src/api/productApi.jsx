@@ -17,8 +17,8 @@ const createProduct = (product) => {
   }
 };
 
-const getBlog = (blogId) => {
-  const url = `/blog/get-blogs?id=${blogId}`;
+const getProduct = (pruductType, productId) => {
+  const url = `/blog/get-blogs?id=${pruductType}&type=${productId}`;
   return axiosClient.get(url);
 };
 
@@ -36,7 +36,7 @@ const editBlog = (dataBlog) => {
 
 const productApi = {
   createProduct,
-  getBlog,
+  getProduct,
   editBlog,
 };
 

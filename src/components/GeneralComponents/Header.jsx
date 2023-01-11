@@ -5,7 +5,7 @@ import './Header.scss';
 import Logo from '../../assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlide';
+import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlice';
 
 function Header(props) {
 	const headerList = [

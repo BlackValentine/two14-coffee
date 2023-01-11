@@ -1,16 +1,16 @@
 import React from 'react';
-import CoffeeCollectionContent from '../CollectionComponents/CoffeeCollectionContent';
 import Footer from '../GeneralComponents/Footer';
 import Header from '../GeneralComponents/Header';
+import ChooseNewProduct from '../NewProductComponents/ChooseNewProduct';
 
-function CoffeeCollectionScreen(props) {
+function ChooseNewProductScreen(props) {
   return (
     <div>
       <Header />
-      <CoffeeCollectionContent />
+      <ChooseNewProduct />
       <Footer />
     </div>
   );
 }
 
-export default CoffeeCollectionScreen;
+export default ChooseNewProductScreen;

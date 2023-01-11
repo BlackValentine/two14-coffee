@@ -1,4 +1,4 @@
-@use "../../variables/variable" as c;
+@use '../../variables/variable' as c;
 
 h3 {
   text-align: center;
@@ -40,41 +40,47 @@ h3 {
     }
   }
   .new-coffee__all-field {
-    .new-coffee__field {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+  }
 
-      span {
-        min-width: 50px;
-        font-size: 16px;
-        color: c.$text-green-color;
-      }
+  .new-coffee__field {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 8px;
+    margin-bottom: 8px;
 
-      input {
-        width: 100%;
-        padding: 8px 4px;
-        border: 1px solid c.$text-green-color;
-        border-radius: 4px;
-      }
-
-      textarea {
-        width: 100%;
-        padding: 8px 4px;
-        border: 1px solid c.$text-green-color;
-        border-radius: 4px;
-        resize: none;
-
-        &:focus {
-          border: 1px solid c.$text-green-color;
-        }
-      }
+    span {
+      font-size: 16px;
+      color: c.$text-green-color;
     }
 
-    .new-coffee__field-description {
-      flex-direction: column;
-      align-items: flex-start;
+    input {
+      width: 100%;
+      padding: 8px 4px;
+      border: 1px solid c.$text-green-color;
+      border-radius: 4px;
     }
+
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid c.$text-green-color;
+      border-radius: 4px;
+      resize: none;
+      outline: none;
+
+      &:focus {
+        border: 1px solid c.$text-green-color;
+      }
+    }
+  }
+
+  .new-coffee__field-description {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
   }
 }

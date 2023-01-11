@@ -5,7 +5,7 @@ import './CheckoutPopup.scss';
 import closeIcon from '../../assets/images/x-close.svg';
 import CheckoutProductItem from './CheckoutProductItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlide';
+import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlice';
 
 function CheckoutPopup(props) {
   const dispatch = useDispatch();
