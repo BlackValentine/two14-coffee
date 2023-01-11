@@ -11,6 +11,7 @@ import ResetPasswordScreen from './components/Screens/ResetPasswordScreen';
 import ProductItemScreen from './components/Screens/ProductItemScreen';
 import NewCoffee from './components/NewProductComponents/NewCoffee';
 import ChooseNewProductScreen from './components/Screens/ChooseNewProductScreen';
+import ApparelDetailScreen from './components/Screens/ApparelDetailScreen';
 
 function App(props) {
   return (
@@ -26,6 +27,7 @@ function App(props) {
 			<Route path='/account/register' element={<RegisterScreen />} />
 			<Route path='/account/reset' element={<ResetPasswordScreen />} />
 			<Route path='/collections/product' element={<ProductItemScreen />} />
+			<Route path='/collections/apparel' element={<ApparelDetailScreen />} />
 			<Route path='/new-product/coffee' element={<NewCoffee />} />
 			<Route path='/new-product' element={<ChooseNewProductScreen />} />
 		</Routes>
