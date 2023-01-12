@@ -1,40 +1,63 @@
-import React from 'react';
-import coffee1 from '../../assets/images/coffee1.webp';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './ProductDetail.scss';
 
 function ProductDetail(props) {
-  const grindList = ["Whole Beans", "Chemex", "Commercial", "Domestic", "Filter", "Plunger", "Stove", "Turkish", "V60"]
-  const bagSize = ["1kg", "500g", "250g"]
+  const { state } = useLocation();
+
+  const [grindChoice, setGrindChoice] = useState('');
+  const [sizeChoice, setSizeChoice] = useState('');
+  const [productQuantity, setProductQuantity] = useState(1);
+
+  const id = state?.id;
+
+  const grindList = [
+    'Whole Beans',
+    'Chemex',
+    'Commercial',
+    'Domestic',
+    'Filter',
+    'Plunger',
+    'Stove',
+    'Turkish',
+    'V60',
+  ];
+  const bagSize = ['1kg', '500g', '250g'];
+
+  const handleChooseGrindType = (grindItem) => {
+    setGrindChoice(grindItem)
+  }
+
+  const handleChooseBagSize = (sizeItem) => {
+    setSizeChoice(sizeItem)
+  }
+
   return (
     <div className="product-detail__wrap">
       <div className="container container__product-detail">
         <div className="product-detail__img">
-          <img src={coffee1} alt="productImg" />
+          <img src={state.image} alt="productImg" />
         </div>
         <div className="product-detail">
-          <h3 className="product-detail__title">TWO 14 ARMOURED BLEND</h3>
+          <h3 className="product-detail__title">{state.name}</h3>
           <span className="product-detail__author">
-            Crafted by Two 14 Coffee Co.
+            Crafted by {state.author}.
           </span>
-          <p className="product-detail__subtitle">
-            Bold and intense, with notes of dark chocolate and Brazil nuts. This
-            coffee cuts fantastically well through milk and finishes with a long
-            toffee sweetness. Not for the faint of heart.
-          </p>
+          <p className="product-detail__subtitle">{state.description}</p>
           <div className="product-detail__coffee">
             <div className="grid grid-columns-50">
               <div className="coffee__roast">
                 <h6>ROAST</h6>
-                <p>Dark</p>
+                <p>{state.roast}</p>
               </div>
               <div className="coffee__origin">
                 <h6>ORIGIN</h6>
-                <p>South America, Africa, India</p>
+                <p>{state.origin}</p>
               </div>
             </div>
             <div className="coffee__taste">
               <h6>TASTE</h6>
-              <p>Toffee, Dark Chocolate, Spice</p>
+              <p>{state.taste}</p>
             </div>
           </div>
 
@@ -43,10 +66,14 @@ function ProductDetail(props) {
             <ul className="option__list">
               {bagSize.map((sizeItem, index) => {
                 return (
-                  <li key={index} className="option__item">
+                  <li 
+                    key={index} 
+                    className={`option__item ${sizeItem === sizeChoice ? "active" : ""}`} 
+                    onClick={() => handleChooseBagSize(sizeItem)}
+                  >
                     <span>{sizeItem}</span>
                   </li>
-                )
+                );
               })}
             </ul>
           </div>
@@ -56,19 +83,32 @@ function ProductDetail(props) {
             <ul className="option__list">
               {grindList.map((grindItem, index) => {
                 return (
-                  <li key={index} className="option__item">
+                  <li 
+                    key={index} 
+                    className={`option__item ${grindItem === grindChoice ? "active" : ""}`}
+                    onClick={() => handleChooseGrindType(grindItem)}
+                  >
                     <span>{grindItem}</span>
                   </li>
-                )
+                );
               })}
             </ul>
           </div>
 
           <div className="product-detail__quantity">
-            <h6 className='quantity__title'>Quantity</h6>
+            <h6 className="quantity__title">Quantity</h6>
             <div className="d-flex align-items-center">
-              <input type="number" value={1}/>
-              <span>$39.00 AUD</span>
+              <input 
+                type="number" 
+                value={productQuantity} 
+                onChange={(e) => {
+                  if (e.target.value < 1) {
+                    setProductQuantity(1)
+                  } else {
+                    setProductQuantity(e.target.value)
+                  }
+                }}/>
+              <span>${(state.price * productQuantity / 100).toFixed(2)} AUD</span>
             </div>
           </div>
 
@@ -76,11 +116,11 @@ function ProductDetail(props) {
             <h6 className="radio__title">PURCHASE OPTIONS</h6>
             <ul className="radio__list">
               <li className="radio__option">
-                <input type="radio" name="purchase-option" value="one-time"/>
+                <input type="radio" name="purchase-option" value="one-time" />
                 <span>One Time Purchase</span>
               </li>
               <li className="radio__option">
-                <input type="radio" name="purchase-option" value="subscribe"/>
+                <input type="radio" name="purchase-option" value="subscribe" />
                 <span>Subscribe and Save 10%</span>
               </li>
             </ul>

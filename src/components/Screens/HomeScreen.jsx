@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllCoffee } from '../../store/api';
+import { getAllApparel, getAllCoffee } from '../../store/api';
 import CheckoutPopup from '../CheckoutComponents/CheckoutPopup';
 import Footer from '../GeneralComponents/Footer';
 import Header from '../GeneralComponents/Header';
@@ -13,6 +13,7 @@ function HomeScreen(props) {
 
   useEffect(() => {
     dispatch(getAllCoffee())
+    dispatch(getAllApparel())
   }, [])
   return (
     <div>

@@ -12,6 +12,8 @@ import ProductItemScreen from './components/Screens/ProductItemScreen';
 import NewCoffee from './components/NewProductComponents/NewCoffee';
 import ChooseNewProductScreen from './components/Screens/ChooseNewProductScreen';
 import ApparelDetailScreen from './components/Screens/ApparelDetailScreen';
+import NewApparel from './components/NewProductComponents/New Apparel';
+import ApparelCollectionScreen from './components/Screens/ApparelCollectionScreen';
 
 function App(props) {
   return (
@@ -23,12 +25,17 @@ function App(props) {
 				path='/collections/coffee-blend'
 				element={<CoffeeCollectionScreen />}
 			/>
+			<Route
+				path='/collections/apparel-blend'
+				element={<ApparelCollectionScreen />}
+			/>
 			<Route path='/account/login' element={<LogInScreen />} />
 			<Route path='/account/register' element={<RegisterScreen />} />
 			<Route path='/account/reset' element={<ResetPasswordScreen />} />
-			<Route path='/collections/product' element={<ProductItemScreen />} />
-			<Route path='/collections/apparel' element={<ApparelDetailScreen />} />
+			<Route path='/collections/coffee/:id' element={<ProductItemScreen />} />
+			<Route path='/collections/apparel/:id' element={<ApparelDetailScreen />} />
 			<Route path='/new-product/coffee' element={<NewCoffee />} />
+			<Route path='/new-product/apparel' element={<NewApparel />} />
 			<Route path='/new-product' element={<ChooseNewProductScreen />} />
 		</Routes>
 	);

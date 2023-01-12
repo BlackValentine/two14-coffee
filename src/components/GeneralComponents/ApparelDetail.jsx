@@ -1,48 +1,57 @@
-import React from 'react';
-import coffee1 from '../../assets/images/coffee1.webp';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function ApparelDetail(props) {
+  const { state } = useLocation();
   const apparelSize = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
+
+  const [sizeChoice, setSizeChoice] = useState('');
+  const [productQuantity, setProductQuantity] = useState(1);
+
   return (
     <div className="product-detail__wrap">
       <div className="container container__product-detail">
         <div className="product-detail__img">
-          <img src={coffee1} alt="productImg" />
+          <img src={state.image} alt="productImg" />
         </div>
         <div className="product-detail">
-          <h3 className="product-detail__title">CAFE TWO 14 LOGO T-SHIRT</h3>
-          <span className="product-detail__author">Two 14 Coffee Co.</span>
-          <p className="product-detail__subtitle">
-            Support Two 14 Coffee Co by ordering this Cafe Two 14 logo t-shirt.
-            Our t-shirts are printed on high-quality AS Colour premium tees, a
-            100% Combed Cotton, long-lasting build.
-          </p>
+          <h3 className="product-detail__title">{state.name}</h3>
+          <span className="product-detail__author">{state.author}</span>
+          <p className="product-detail__subtitle">{state.description}</p>
 
           <table className="product-detail__shirt-table-size">
-            <tr>
-              <th className="text-left">Size guide</th>
-              {apparelSize.map((sizeItem, index) => {
-                return <th key={index}>{sizeItem}</th>;
-              })}
-            </tr>
-            <tr>
-              <td className="text-left">Width (cm)</td>
-              <td>47</td>
-              <td>52</td>
-              <td>56</td>
-              <td>61</td>
-              <td>64</td>
-              <td>67</td>
-            </tr>
-            <tr>
-              <td className="text-left">Height (cm)</td>
-              <td>71</td>
-              <td>75</td>
-              <td>78</td>
-              <td>82</td>
-              <td>85</td>
-              <td>87</td>
-            </tr>
+            <thead>
+              <tr>
+                <th className="text-left bold">Size guide</th>
+                {apparelSize.map((sizeItem, index) => {
+                  return (
+                    <th key={index} className="bold">
+                      {sizeItem}
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-left bold">Width (cm)</td>
+                <td>47</td>
+                <td>52</td>
+                <td>56</td>
+                <td>61</td>
+                <td>64</td>
+                <td>67</td>
+              </tr>
+              <tr>
+                <td className="text-left bold">Height (cm)</td>
+                <td>71</td>
+                <td>75</td>
+                <td>78</td>
+                <td>82</td>
+                <td>85</td>
+                <td>87</td>
+              </tr>
+            </tbody>
           </table>
 
           <div className="option">
@@ -50,7 +59,13 @@ function ApparelDetail(props) {
             <ul className="option__list">
               {apparelSize.map((sizeItem, index) => {
                 return (
-                  <li key={index} className="option__item">
+                  <li
+                    key={index}
+                    className={`option__item ${
+                      sizeItem === sizeChoice ? 'active' : ''
+                    } `}
+                    onClick={() => setSizeChoice(sizeItem)}
+                  >
                     <span>{sizeItem}</span>
                   </li>
                 );
@@ -61,8 +76,20 @@ function ApparelDetail(props) {
           <div className="product-detail__quantity">
             <h6 className="quantity__title">Quantity</h6>
             <div className="d-flex align-items-center">
-              <input type="number" value={1} />
-              <span>$39.00 AUD</span>
+              <input
+                type="number"
+                value={productQuantity}
+                onChange={(e) => {
+                  if (e.target.value < 1) {
+                    setProductQuantity(1);
+                  } else {
+                    setProductQuantity(e.target.value);
+                  }
+                }}
+              />
+              <span>
+                ${((state.price / 100) * productQuantity).toFixed(2)} AUD
+              </span>
             </div>
           </div>
 

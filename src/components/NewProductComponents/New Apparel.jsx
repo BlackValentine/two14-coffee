@@ -5,14 +5,11 @@ import './NewCoffee.scss';
 import utils from '../../utils';
 import productApi from '../../api/productApi';
 
-function NewCoffee(props) {
-  const [coffee, setCoffee] = useState({
-    type: 'coffee',
+function NewApparel(props) {
+  const [apparel, setApparel] = useState({
+    type: 'apparel',
     name: '',
     author: '',
-    roast: '',
-    origin: '',
-    taste: '',
     price: '',
     description: '',
   });
@@ -20,8 +17,8 @@ function NewCoffee(props) {
   const [previewImageURL, setPreviewImageURL] = useState('');
 
   const handleChangeField = (e) => {
-    setCoffee({
-      ...coffee,
+    setApparel({
+      ...apparel,
       [e.target.id]: e.target.value,
     });
   };
@@ -40,22 +37,19 @@ function NewCoffee(props) {
 
   const handleSubmitForm = async () => {
     const result = await productApi.createProduct({
-      ...coffee,
+      ...apparel,
       image: imageProduct,
     });
 
     if (result.data.errCode === 0) {
-      setCoffee({
-        type: 'coffee',
+      setApparel({
+        type: 'apparel',
         name: '',
         author: '',
-        roast: '',
-        origin: '',
-        taste: '',
         price: '',
         description: '',
       });
-      setPreviewImageURL('')
+      setPreviewImageURL('');
     }
   };
 
@@ -86,7 +80,7 @@ function NewCoffee(props) {
                 id="name"
                 type="text"
                 placeholder="Product Name ..."
-                value={coffee.name}
+                value={apparel.name}
                 onChange={(e) => handleChangeField(e)}
               />
             </div>
@@ -96,37 +90,7 @@ function NewCoffee(props) {
                 id="author"
                 type="text"
                 placeholder="Product Author ..."
-                value={coffee.author}
-                onChange={(e) => handleChangeField(e)}
-              />
-            </div>
-            <div className="new-coffee__field">
-              <span>Roast</span>
-              <input
-                id="roast"
-                type="text"
-                placeholder="Product Roast ..."
-                value={coffee.roast}
-                onChange={(e) => handleChangeField(e)}
-              />
-            </div>
-            <div className="new-coffee__field">
-              <span>Origin</span>
-              <input
-                id="origin"
-                type="text"
-                placeholder="Product Origin ..."
-                value={coffee.origin}
-                onChange={(e) => handleChangeField(e)}
-              />
-            </div>
-            <div className="new-coffee__field">
-              <span>Taste</span>
-              <input
-                id="taste"
-                type="text"
-                placeholder="Product Taste ..."
-                value={coffee.taste}
+                value={apparel.author}
                 onChange={(e) => handleChangeField(e)}
               />
             </div>
@@ -136,7 +100,7 @@ function NewCoffee(props) {
                 id="price"
                 type="number"
                 placeholder="Product Price ..."
-                value={coffee.price}
+                value={apparel.price}
                 onChange={(e) => handleChangeField(e)}
               />
             </div>
@@ -148,7 +112,7 @@ function NewCoffee(props) {
               id="description"
               rows="10"
               placeholder="Product Description ..."
-              value={coffee.description}
+              value={apparel.description}
               onChange={(e) => handleChangeField(e)}
             ></textarea>
           </div>
@@ -164,4 +128,4 @@ function NewCoffee(props) {
   );
 }
 
-export default NewCoffee;
+export default NewApparel;

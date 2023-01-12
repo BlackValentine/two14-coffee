@@ -115,6 +115,16 @@
           text-align: center;
           padding: 8px 0;
           border-bottom: 1px solid #e7e5e4;
+          font-size: 12px;
+        }
+
+        td {
+          color: c.$text-green-color;
+        }
+
+        .bold {
+          color: #1c1917;
+          font-weight: 600;
         }
       }
     }

@@ -14,6 +14,15 @@ const createProduct = (product) => {
       description: product.description,
       image: product.image
     });
+  } else if (product.type === 'apparel') {
+    return axiosClient.post(url, {
+      type: product.type,
+      name: product.name,
+      author: product.author,
+      price: product.price,
+      description: product.description,
+      image: product.image
+    });
   }
 };
 

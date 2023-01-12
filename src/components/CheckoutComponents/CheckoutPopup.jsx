@@ -21,7 +21,7 @@ function CheckoutPopup(props) {
 		<div
 			className={`checkout-popup__wrap ${isShowCheckoutPopup ? '' : 'close'}`}
 		>
-			<div className='checkout-popup__container'>
+			<div className={`checkout-popup__container`}>
 				<div className='checkout-popup__product'>
 					<div className='checkout-popup__header'>
 						<h6>Your cart</h6>

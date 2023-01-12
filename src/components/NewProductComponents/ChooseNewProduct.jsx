@@ -6,9 +6,11 @@ function ChooseNewProduct(props) {
   return (
     <div className="container">
       <ul className="new-product__list">
-        <li className="new-product__item">
-          <span>Apparel</span>
-        </li>
+        <Link to={'/new-product/apparel'}>
+          <li className="new-product__item">
+            <span>Apparel</span>
+          </li>
+        </Link>
         <Link to={'/new-product/coffee'}>
           <li className="new-product__item">
             <span>Coffee</span>

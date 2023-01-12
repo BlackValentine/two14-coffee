@@ -8,3 +8,11 @@ export const getAllCoffee = createAsyncThunk(
     return sendRequest(url, payload, thunkAPI, 'get');
   }
 );
+
+export const getAllApparel = createAsyncThunk(
+  'api/get-all-apparel',
+  (payload, thunkAPI) => {
+    const url = `/get-all-apparel`;
+    return sendRequest(url, payload, thunkAPI, 'get');
+  }
+);

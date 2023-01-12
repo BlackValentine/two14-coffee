@@ -1,10 +1,11 @@
 /** @format */
 
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllCoffee } from '../api';
+import { getAllApparel, getAllCoffee } from '../api';
 
 const initialState = {
   allCoffeeProducts: [],
+  allApparelProducts: []
 };
 
 export const productSlice = createSlice({
@@ -17,6 +18,11 @@ export const productSlice = createSlice({
 				state.allCoffeeProducts = action.payload.products;
 			}
     },
+    [getAllApparel.fulfilled]: (state, action) => {
+      if (action.payload.errCode === 0) {
+				state.allApparelProducts = action.payload.products;
+			}
+    }
   },
 });
 
