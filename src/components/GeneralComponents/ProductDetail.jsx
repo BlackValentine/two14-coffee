@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import {
+  setCart,
+  setIsShowCheckoutPopup,
+} from '../../store/reducers/generalSlice';
 import './ProductDetail.scss';
 
 function ProductDetail(props) {
+  const dispatch = useDispatch();
   const { state } = useLocation();
+
+  const isShowCheckoutPopup = useSelector(
+    (state) => state.general.isShowCheckoutPopup
+  );
 
   const [grindChoice, setGrindChoice] = useState('');
   const [sizeChoice, setSizeChoice] = useState('');
@@ -25,12 +35,67 @@ function ProductDetail(props) {
   const bagSize = ['1kg', '500g', '250g'];
 
   const handleChooseGrindType = (grindItem) => {
-    setGrindChoice(grindItem)
-  }
+    setGrindChoice(grindItem);
+  };
 
   const handleChooseBagSize = (sizeItem) => {
-    setSizeChoice(sizeItem)
-  }
+    setSizeChoice(sizeItem);
+  };
+
+  const handleAddItemToCart = () => {
+    if (localStorage.getItem('cart')) {
+      let cart = JSON.parse(localStorage.getItem('cart'));
+
+      let indexItemExist = -1;
+      cart.forEach((cartItem, index) => {
+        if (
+          cartItem.id === state.id &&
+          cartItem.type === 'coffee' &&
+          cartItem.size === sizeChoice
+        ) {
+          indexItemExist = index;
+        } else {
+          indexItemExist = -1;
+        }
+      });
+
+      if (indexItemExist === -1) {
+        cart = [
+          ...cart,
+          {
+            id: state.id,
+            type: 'coffee',
+            name: state.name,
+            price: state.price,
+            size: sizeChoice,
+            grind: grindChoice,
+            quantity: productQuantity,
+            image: state.image,
+          },
+        ];
+      } else {
+        cart[indexItemExist].quantity =
+          +cart[indexItemExist].quantity + +productQuantity;
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      localStorage.setItem(
+        'cart',
+        JSON.stringify([
+          {
+            id: state.id,
+            type: 'coffee',
+            name: state.name,
+            price: state.price,
+            size: sizeChoice,
+            quantity: productQuantity,
+            image: state.image,
+          },
+        ])
+      );
+    }
+    dispatch(setIsShowCheckoutPopup(!isShowCheckoutPopup));
+  };
 
   return (
     <div className="product-detail__wrap">
@@ -66,9 +131,11 @@ function ProductDetail(props) {
             <ul className="option__list">
               {bagSize.map((sizeItem, index) => {
                 return (
-                  <li 
-                    key={index} 
-                    className={`option__item ${sizeItem === sizeChoice ? "active" : ""}`} 
+                  <li
+                    key={index}
+                    className={`option__item ${
+                      sizeItem === sizeChoice ? 'active' : ''
+                    }`}
                     onClick={() => handleChooseBagSize(sizeItem)}
                   >
                     <span>{sizeItem}</span>
@@ -83,9 +150,11 @@ function ProductDetail(props) {
             <ul className="option__list">
               {grindList.map((grindItem, index) => {
                 return (
-                  <li 
-                    key={index} 
-                    className={`option__item ${grindItem === grindChoice ? "active" : ""}`}
+                  <li
+                    key={index}
+                    className={`option__item ${
+                      grindItem === grindChoice ? 'active' : ''
+                    }`}
                     onClick={() => handleChooseGrindType(grindItem)}
                   >
                     <span>{grindItem}</span>
@@ -98,17 +167,20 @@ function ProductDetail(props) {
           <div className="product-detail__quantity">
             <h6 className="quantity__title">Quantity</h6>
             <div className="d-flex align-items-center">
-              <input 
-                type="number" 
-                value={productQuantity} 
+              <input
+                type="number"
+                value={productQuantity}
                 onChange={(e) => {
                   if (e.target.value < 1) {
-                    setProductQuantity(1)
+                    setProductQuantity(1);
                   } else {
-                    setProductQuantity(e.target.value)
+                    setProductQuantity(e.target.value);
                   }
-                }}/>
-              <span>${(state.price * productQuantity / 100).toFixed(2)} AUD</span>
+                }}
+              />
+              <span>
+                ${((state.price * productQuantity) / 100).toFixed(2)} AUD
+              </span>
             </div>
           </div>
 
@@ -126,7 +198,12 @@ function ProductDetail(props) {
             </ul>
           </div>
 
-          <button className="product-detail__add-btn">Add to cart</button>
+          <button
+            className="product-detail__add-btn"
+            onClick={() => handleAddItemToCart()}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

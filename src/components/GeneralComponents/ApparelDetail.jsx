@@ -1,12 +1,73 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlice';
 
 function ApparelDetail(props) {
+  const dispatch = useDispatch();
   const { state } = useLocation();
   const apparelSize = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
 
+  const isShowCheckoutPopup = useSelector(
+    (state) => state.general.isShowCheckoutPopup
+  );
+
   const [sizeChoice, setSizeChoice] = useState('');
   const [productQuantity, setProductQuantity] = useState(1);
+
+  const handleAddItemToCart = () => {
+    if (localStorage.getItem('cart')) {
+      let cart = JSON.parse(localStorage.getItem('cart'));
+
+      let indexItemExist = -1;
+      cart.forEach((cartItem, index) => {
+        if (
+          cartItem.id === state.id &&
+          cartItem.type === 'apparel' &&
+          cartItem.size === sizeChoice
+        ) {
+          indexItemExist = index;
+        } else {
+          indexItemExist = -1;
+        }
+      });
+
+      if (indexItemExist === -1) {
+        cart = [
+          ...cart,
+          {
+            id: state.id,
+            type: 'apparel',
+            name: state.name,
+            price: state.price,
+            size: sizeChoice,
+            quantity: productQuantity,
+            image: state.image,
+          },
+        ];
+      } else {
+        cart[indexItemExist].quantity =
+          +cart[indexItemExist].quantity + +productQuantity;
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      localStorage.setItem(
+        'cart',
+        JSON.stringify([
+          {
+            id: state.id,
+            type: 'apparel',
+            name: state.name,
+            price: state.price,
+            size: sizeChoice,
+            quantity: productQuantity,
+            image: state.image,
+          },
+        ])
+      );
+    }
+    dispatch(setIsShowCheckoutPopup(!isShowCheckoutPopup));
+  };
 
   return (
     <div className="product-detail__wrap">
@@ -107,7 +168,12 @@ function ApparelDetail(props) {
             </ul>
           </div>
 
-          <button className="product-detail__add-btn">Add to cart</button>
+          <button
+            className="product-detail__add-btn"
+            onClick={() => handleAddItemToCart()}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

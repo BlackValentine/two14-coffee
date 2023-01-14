@@ -17,7 +17,6 @@ function HomeScreen(props) {
   }, [])
   return (
     <div>
-      <CheckoutPopup />
       <Header />
       <Intro />
       <Coffee />

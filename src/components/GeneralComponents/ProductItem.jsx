@@ -1,6 +1,5 @@
 import React from 'react';
 import "./ProductItem.scss";
-import coffee1 from "../../assets/images/coffee1.webp"
 
 function ProductItem(props) {
   return (

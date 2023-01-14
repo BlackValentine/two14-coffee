@@ -37,8 +37,8 @@ function CollectionContent(props) {
         <ul className="collection__list">
           {collectionList.map((collectionItem, index) => {
             return (
-              <Link to={collectionItem.url}>
-                <li key={index} className="collection__item">
+              <Link to={collectionItem.url} key={index}>
+                <li className="collection__item">
                   <ProductItem img={collectionItem.img} name={collectionItem.name} />
                 </li>
               </Link>

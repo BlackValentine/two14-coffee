@@ -41,9 +41,10 @@
       display: flex;
       align-items: center;
 
-      a {
+      a, .header__right-cart {
         padding-right: 20px;
         color: #A8A29E;
+        cursor: pointer;
 
         svg {
           width: 21.5px;
