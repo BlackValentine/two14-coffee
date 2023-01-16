@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 import HomeScreen from './components/Screens/HomeScreen';
 import { Routes, Route } from 'react-router-dom';
@@ -15,14 +15,28 @@ import ApparelDetailScreen from './components/Screens/ApparelDetailScreen';
 import NewApparel from './components/NewProductComponents/New Apparel';
 import ApparelCollectionScreen from './components/Screens/ApparelCollectionScreen';
 import CheckoutPopup from './components/CheckoutComponents/CheckoutPopup';
+import { useDispatch } from 'react-redux';
+import { getAllApparel, getAllCoffee } from './store/api';
+import CheckoutInformationScreen from './components/Screens/CheckoutInformationScreen';
+import MediaScreen from './components/Screens/MediaScreen';
+import PartnersScreen from './components/Screens/PartnersScreen';
 
 function App(props) {
+	const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCoffee())
+    dispatch(getAllApparel())
+  }, [])
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/wholesale" element={<WholeSaleScreen />} />
         <Route path="/collections" element={<CollectionScreen />} />
+        <Route path="/media" element={<MediaScreen />} />
+        <Route path="/partners" element={<PartnersScreen />} />
         <Route
           path="/collections/coffee-blend"
           element={<CoffeeCollectionScreen />}
@@ -42,8 +56,9 @@ function App(props) {
         <Route path="/new-product/coffee" element={<NewCoffee />} />
         <Route path="/new-product/apparel" element={<NewApparel />} />
         <Route path="/new-product" element={<ChooseNewProductScreen />} />
+        <Route path="/checkout" element={<CheckoutInformationScreen />} />
       </Routes>
-			
+
       <CheckoutPopup />
     </div>
   );

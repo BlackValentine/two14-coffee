@@ -113,6 +113,10 @@ body {
   justify-content: space-between;
 }
 
+.flex-columns {
+  flex-direction: column;
+}
+
 .grid {
   display: grid;
 }
@@ -121,8 +125,16 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+.gap-10 {
+  gap: 10px;
+}
+
 .text-left {
   text-align: left !important;
+}
+
+.bg-primary {
+  background-color: #F1F0E8;
 }
 
 .option {

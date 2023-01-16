@@ -1,0 +1,130 @@
+.checkout-cart {
+  padding: 67px 21px 21px 44px;
+
+  &__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    &-img {
+      position: relative;
+      margin-right: 8px;
+
+      img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+      }
+
+      .checkout-cart__item-quantity {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        display: flex;
+        width: 20px;
+        height: 20px;
+        background-color: #737373;
+        color: #ffffff;
+        border-radius: 50%;
+        
+        span {
+          margin: auto;
+        }
+      }
+    }
+
+    &-name {
+      font-size: 14px;
+      color: #2B2B2B;
+    }
+  
+    &-option {
+      font-size: 12px;
+      color: #2B2B2B;
+    }
+
+    &-price {
+      font-size: 14px;
+      color: #2B2B2B;
+    }
+  }
+
+  &__discount {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 0;
+    border-top: 1px solid #c9c9c9;
+    border-bottom: 1px solid #c9c9c9;
+
+    input {
+      padding: 11px 15px;
+      border: 1px solid #c9c9c9;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 15px;
+      background-color: #c9c9c9;
+      color: #ffffff;
+      border-radius: 4px;
+    }
+  }
+
+  &__subtotal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+
+    .key {
+      font-size: 14px;
+      color: #4a4a4a;
+    }
+
+    .value {
+      font-size: 14px;
+      color: #2b2b2b;
+    }
+  }
+
+  &__shipping {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0 24px;
+
+    .key {
+      font-size: 14px;
+      color: #4a4a4a;
+    }
+
+    .value {
+      font-size: 12px;
+      color: #4a4a4a;
+    }
+  }
+
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid #c9c9c9;
+
+    .key {
+      font-size: 16px;
+      color: #2b2b2b;
+    }
+
+    .value {
+      font-size: 24px;
+      color: #2b2b2b;
+    }
+  }
+}

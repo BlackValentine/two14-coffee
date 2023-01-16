@@ -1,25 +1,17 @@
 /** @format */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import './CoffeeCollectionContent.scss';
 import ProductItem from '../GeneralComponents/ProductItem';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllCoffee } from '../../store/api';
-import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function CoffeeCollectionContent(props) {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const allCoffeeProducts = useSelector(
     (state) => state.product.allCoffeeProducts
   );
-
-  useEffect(() => {
-    if (allCoffeeProducts.length <= 0) {
-      dispatch(getAllCoffee());
-    }
-  }, [allCoffeeProducts]);
 
 	const handleGoDetailCoffee = (coffeeItem) => {
 		const path = `/collections/coffee/${coffeeItem.id}`

@@ -16,7 +16,9 @@ function ResetForm(props) {
 					<input type='email' placeholder='Email' />
 				</div>
 				<button className='button--submit'>Submit</button>
-				<button className='button--cancel'>Cancel</button>
+				<Link to="/account/login">
+					<button className='button--cancel'>Cancel</button>
+				</Link>
 			</div>
 		</div>
 	);

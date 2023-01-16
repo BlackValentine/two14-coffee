@@ -6,6 +6,7 @@ import closeIcon from '../../assets/images/x-close.svg';
 import CheckoutProductItem from './CheckoutProductItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsShowCheckoutPopup } from '../../store/reducers/generalSlice';
+import { Link } from 'react-router-dom';
 
 function CheckoutPopup(props) {
   const dispatch = useDispatch();
@@ -13,15 +14,15 @@ function CheckoutPopup(props) {
 
   const [cart, setCart] = useState(cartFromStorage ?? []);
 
-	useEffect(() => {
-		setCart(JSON.parse(localStorage.getItem('cart')))
-	}, [localStorage.getItem('cart')])
+  useEffect(() => {
+    setCart(JSON.parse(localStorage.getItem('cart')));
+  }, [localStorage.getItem('cart')]);
 
   const handleRemoveCartItem = (i) => {
-    let cartClone = [...cart]
-    cartClone.splice(i, 1)
-    setCart(cartClone)
-    localStorage.setItem('cart', JSON.stringify(cartClone))
+    let cartClone = [...cart];
+    cartClone.splice(i, 1);
+    setCart(cartClone);
+    localStorage.setItem('cart', JSON.stringify(cartClone));
   };
 
   const isShowCheckoutPopup = useSelector(
@@ -33,9 +34,12 @@ function CheckoutPopup(props) {
   };
 
   const getTotalPrice = () => {
-		if (cart.length > 0) {
-			const total = cart.reduce(
-				(sum, cartItem) => sum + parseFloat(cartItem.quantity) * parseFloat(cartItem.price), 0);
+    if (cart.length > 0) {
+      const total = cart.reduce(
+        (sum, cartItem) =>
+          sum + parseFloat(cartItem.quantity) * parseFloat(cartItem.price),
+        0
+      );
       return total;
     } else {
       return 0;
@@ -84,7 +88,9 @@ function CheckoutPopup(props) {
           <p className="bill__note">
             Shipping and discounts caculated at checkouts.
           </p>
-          <button onClick={() => handleCheckout()}>Checkout</button>
+          <Link to={"/checkout"}>
+            <button onClick={handleCloseCheckoutPopup}>Checkout</button>
+          </Link>
           <p
             className="bill__note text-center"
             onClick={handleCloseCheckoutPopup}

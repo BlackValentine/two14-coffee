@@ -26,11 +26,11 @@ function Header(props) {
 			title: 'Wholesale',
 		},
 		{
-			href: '#Media',
+			href: '/media',
 			title: 'Media',
 		},
 		{
-			href: '#Partners',
+			href: '/partners',
 			title: 'Partners',
 		},
 	];

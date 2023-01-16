@@ -16,3 +16,12 @@ export const getAllApparel = createAsyncThunk(
     return sendRequest(url, payload, thunkAPI, 'get');
   }
 );
+
+
+export const login = createAsyncThunk(
+  'api/user/login',
+  (payload, thunkAPI) => {
+    const url = `/user/login`;
+    return sendRequest(url, payload, thunkAPI, 'post');
+  }
+);
