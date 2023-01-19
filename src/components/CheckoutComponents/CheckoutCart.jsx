@@ -1,8 +1,9 @@
-import React from 'react';
-import coffee1 from "../../assets/images/coffee1.webp";
+import { useState } from 'react';
 import "./CheckoutCart.scss";
 
 function CheckoutCart(props) {
+
+  const [discountInput, setDiscountInput] = useState('')
 
   const cart = JSON.parse(localStorage.getItem('cart'))
 
@@ -47,8 +48,8 @@ function CheckoutCart(props) {
       })}
 
       <div className="checkout-cart__discount">
-        <input type="text" placeholder='Discount code' />
-        <button>Apply</button>
+        <input type="text" placeholder='Discount code' value={discountInput} onChange={(e) => setDiscountInput(e.target.value)}/>
+        <button className={discountInput.length > 0 ? "active" : ""}>Apply</button>
       </div>
 
       <div className="checkout-cart__subtotal">

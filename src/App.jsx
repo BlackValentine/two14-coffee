@@ -20,6 +20,7 @@ import { getAllApparel, getAllCoffee } from './store/api';
 import CheckoutInformationScreen from './components/Screens/CheckoutInformationScreen';
 import MediaScreen from './components/Screens/MediaScreen';
 import PartnersScreen from './components/Screens/PartnersScreen';
+import SearchScreen from './components/Screens/SearchScreen';
 
 function App(props) {
 	const dispatch = useDispatch();
@@ -57,6 +58,7 @@ function App(props) {
         <Route path="/new-product/apparel" element={<NewApparel />} />
         <Route path="/new-product" element={<ChooseNewProductScreen />} />
         <Route path="/checkout" element={<CheckoutInformationScreen />} />
+        <Route path="/search" element={<SearchScreen />} />
       </Routes>
 
       <CheckoutPopup />

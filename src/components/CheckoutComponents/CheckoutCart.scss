@@ -1,3 +1,5 @@
+@use "../../variables/variable" as c;
+
 .checkout-cart {
   padding: 67px 21px 21px 44px;
 
@@ -73,6 +75,16 @@
       background-color: #c9c9c9;
       color: #ffffff;
       border-radius: 4px;
+      cursor: not-allowed;
+
+      &.active {
+        background-color: c.$light-primary-color;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
     }
   }
 

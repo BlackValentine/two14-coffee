@@ -20,30 +20,28 @@ function Footer(props) {
             </ul>
           </div>
           <div className="footer__info-item">
-            <h6>Products</h6>
+            <h6>Customer Info</h6>
             <ul>
-              <li>Coffee</li>
-              <li>Apparel</li>
-              <li>Gifts & Accessories</li>
-              <li>No One Left Behind</li>
+              <li>My Account</li>
+              <li>Contact Us</li>
+              <li>FAQ</li>
             </ul>
           </div>
           <div className="footer__info-item">
-            <h6>Products</h6>
+            <h6>Company</h6>
             <ul>
-              <li>Coffee</li>
-              <li>Apparel</li>
-              <li>Gifts & Accessories</li>
-              <li>No One Left Behind</li>
+              <li>About Us</li>
+              <li>Cafe Locations</li>
+              <li>Wholesale Distribution</li>
             </ul>
           </div>
           <div className="footer__info-item">
-            <h6>Products</h6>
+            <h6>Policies</h6>
             <ul>
-              <li>Coffee</li>
-              <li>Apparel</li>
-              <li>Gifts & Accessories</li>
-              <li>No One Left Behind</li>
+              <li>Shipping Policy</li>
+              <li>Refund Policy</li>
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
             </ul>
           </div>
         </div>
@@ -79,7 +77,7 @@ function Footer(props) {
           </div>
         </div>
         <div className="footer__copyright">
-          <span>© Copyright Two 14 Coffee Co.</span>
+          <span>© Copyright Black Valentine.</span>
           <div className="d-flex align-items-center">
             <span>Privacy</span>
             <span>Terms</span>

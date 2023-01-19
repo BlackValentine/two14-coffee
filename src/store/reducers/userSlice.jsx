@@ -14,8 +14,9 @@ export const userSlice = createSlice({
   extraReducers: {
     [login.fulfilled]: (state, action) => {
       if (action.payload.errCode === 0) {
-				state.user = action.payload.user;
-        console.log(action.payload.user)
+        const user = action.payload.user;
+				state.user = user;
+        localStorage.setItem('user', JSON.stringify(user))
 			}
     }
   },

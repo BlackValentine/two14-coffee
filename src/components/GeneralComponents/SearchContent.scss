@@ -1,0 +1,49 @@
+@use "../../variables/variable" as c;
+
+.search-content__container {
+  padding: 96px 0;
+  
+  .search-content__title {
+    color: #065F46;
+    text-transform: uppercase;
+  }
+
+  .search-content__find {
+    input {
+      width: 350px;
+      padding: 10px 16px;
+      border: 2px solid #c9c9c9;
+      margin-right: 20px;
+      border-radius: 4px;
+
+      &:focus {
+        border: 2px solid c.$light-primary-color;
+      }
+    }
+
+    button {
+      padding: 12px 32px;
+      background-color: c.$light-primary-color;
+      border-radius: 4px;
+      color: #ffffff;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .search-content__text-result {
+    margin-top: 16px;
+    color: #000000;
+    font-size: 12px;
+  }
+
+  .search-content__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+    margin-top: 24px;
+  }
+}
